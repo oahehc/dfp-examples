@@ -1,0 +1,8 @@
+{
+  "name": "dfp-examples",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:oahehc/dfp-examples.git",
+  "author": "oahehc <oahehc@gmail.com>",
+  "license": "MIT"
+}
