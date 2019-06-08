@@ -19,7 +19,9 @@ Examples about how to implement DFP (DoubleClick for Publishers) by using Vanill
 
 ---
 
-## Vanilla JavaScripts
+## Vanilla Javascript
+
+[Javascript example](https://github.com/oahehc/dfp-examples/blob/master/Javascript/index.html)
 
 We can generate script by using DFP console (admanager).
 
@@ -27,9 +29,9 @@ We can generate script by using DFP console (admanager).
 2. click GENERATE TAGS
    ![Imgur](https://i.imgur.com/TrGr6Q2.png)
 
-The scripts including 3 step which list as below:
+The scripts including three steps which list as below:
 
-- load gpt script
+1. load gpt script
 
 ```html
 <script
@@ -38,7 +40,7 @@ The scripts including 3 step which list as below:
 ></script>
 ```
 
-- init gpt
+2. define ad slot
 
 ```html
 <script>
@@ -60,7 +62,7 @@ The scripts including 3 step which list as below:
 </script>
 ```
 
-- add ad element
+3. render ad element and display ad
 
 ```html
 <div id="div-gpt-ad-1559997122392-0" style="height:100px; width:320px;">
@@ -74,9 +76,11 @@ The scripts including 3 step which list as below:
 
 ## AMP
 
+[AMP example](https://github.com/oahehc/dfp-examples/blob/master/AMP/index.html)
+
 implement DFP in AMP is pretty easy, just use amp-ad as below
 
-- import amp-ad component
+1. import amp-ad component
 
 ```html
 <script
@@ -86,7 +90,7 @@ implement DFP in AMP is pretty easy, just use amp-ad as below
 ></script>
 ```
 
-- add ad element
+2. add ad element
 
 ```html
 <amp-ad
@@ -106,6 +110,57 @@ But some DFP formats is not support in AMP
 
 ## React
 
-Using DFP in React, just apply 3 step (load gpt script, init gpt, add ad element)
+[React example](https://github.com/oahehc/dfp-examples/blob/master/reack-dfp)
+
+Using DFP in React, just implement the three steps (load gpt script, define ad slot, render ad element and display ad). Here we use React hook to implement DFP. If you are not familiar with hook, can the document [here](https://reactjs.org/docs/hooks-intro.html).
+
+1. load gpt script (public/index.html)
+
+```html
+<script
+  async="async"
+  src="https://www.googletagservices.com/tag/js/gpt.js"
+></script>
+```
+
+2. Create a custom hook to define and display ad slot (src/useDfpSlot.js)
+
+```javascript
+const useDfpSlot = ({ path, size, id }) => {
+  useEffect(() => {
+    const googletag = window.googletag || {};
+
+    googletag.cmd = googletag.cmd || [];
+    googletag.cmd.push(function() {
+      googletag.defineSlot(path, size, id).addService(googletag.pubads());
+      googletag.pubads().enableSingleRequest();
+      googletag.enableServices();
+    });
+
+    googletag.cmd.push(function() {
+      googletag.display(id);
+    });
+  }, [path, size, id]);
+};
+```
+
+3. render ad element (src/App.js)
+
+```javascript
+const App = () => {
+  useDfpSlot({
+    path: '/21737763597/adunit-1',
+    size: [320, 100],
+    id: 'div-gpt-ad-1559997122392-0',
+  });
+
+  return (
+    <div
+      id="div-gpt-ad-1559997122392-0"
+      style={{ height: '100px', width: '320px' }}
+    />
+  );
+};
+```
 
 ## Vue
