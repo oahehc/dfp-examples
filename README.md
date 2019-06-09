@@ -87,7 +87,7 @@ implement DFP in AMP is pretty easy, just use amp-ad as below:
 </amp-ad>
 ```
 
-But some DFP formats is not support in AMP
+But some DFP formats are not supported in AMP
 
 - Interstitials
 - Flash
@@ -135,7 +135,7 @@ const useDfpSlot = ({ path, size, id }) => {
 3. render ad element
 
 ```javascript
-// src/App.js
+// @src/App.js
 const App = () => {
   useDfpSlot({
     path: '/21737763597/adunit-1',
@@ -221,9 +221,9 @@ Because we don't have hook in Vue.js yet, so here we use component lifecycle hoo
 
 ---
 
-### DFP API
+### GPT API
 
-Here is the DFP API we used in our examples. For more information please reference the [document](https://developers.google.com/doubleclick-gpt/reference).
+Here is the GPT API we have used in our examples. For more information please reference the [document](https://developers.google.com/doubleclick-gpt/reference).
 
 | API                                     |                                                                                                                                               |
 | :-------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -240,7 +240,7 @@ Here is the DFP API we used in our examples. For more information please referen
 
 #### DFP official document
 
-- [console for DFP: admanager](https://admanager.google.com)
+- [DFP console: admanager](https://admanager.google.com)
 - [element in admanager](https://support.google.com/admanager/answer/6012282)
 - [Avoiding Common mistakes](https://developers.google.com/doubleclick-gpt/common_implementation_mistakes)
 
