@@ -11,7 +11,7 @@ const App = () => {
   return (
     <div
       id="div-gpt-ad-1559997122392-0"
-      style={{ height: '100px', width: '320px' }}
+      style={{ width: '320px', height: '100px' }}
     />
   );
 };
