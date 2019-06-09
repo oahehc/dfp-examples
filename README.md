@@ -93,7 +93,7 @@ But some DFP formats is not support in AMP
 - Flash
 - Creatives served over HTTP.
 
-## React
+## React.js
 
 [React example](https://github.com/oahehc/dfp-examples/blob/master/react-dfp)
 
@@ -152,7 +152,9 @@ const App = () => {
 };
 ```
 
-## Vue
+## Vue.js
+
+[Vue example](https://github.com/oahehc/dfp-examples/blob/master/vue-dfp)
 
 Because we don't have hook in Vue.js yet, so here we use component lifecycle hooks to handle DFP.
 
@@ -221,6 +223,17 @@ Because we don't have hook in Vue.js yet, so here we use component lifecycle hoo
 
 ### DFP API
 
+Here is the DFP API we used in our examples. For more information please reference the [document](https://developers.google.com/doubleclick-gpt/reference).
+
+| API                                     |                                                                                                                                               |
+| :-------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+| googletag.cmd                           | Reference to the global command queue for asynchronous execution of GPT-related calls.                                                        |
+| googletag.defineSlot(path, size, [div]) | Constructs an ad slot with a given ad unit path and size and associates it with the ID of a div element on the page that will contain the ad. |
+| googletag.enableServices()              | Enables all GPT services that have been defined for ad slots on the page.                                                                     |
+| googletag.pubads()                      | Returns a reference to the pubads service.                                                                                                    |
+| googletag.display(divOrSlot)            | Instructs slot services to render the slot.                                                                                                   |
+| googletag.destroySlots([slots])         | Destroys the given slots, removing all related objects and references of those slots from GPT.                                                |
+
 ---
 
 ## Reference
@@ -229,7 +242,6 @@ Because we don't have hook in Vue.js yet, so here we use component lifecycle hoo
 
 - [console for DFP: admanager](https://admanager.google.com)
 - [element in admanager](https://support.google.com/admanager/answer/6012282)
-- [API for DFP](https://developers.google.com/doubleclick-gpt/reference)
 - [Avoiding Common mistakes](https://developers.google.com/doubleclick-gpt/common_implementation_mistakes)
 
 #### AMP component for DFP
